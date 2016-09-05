@@ -1,0 +1,47 @@
+@height: 6.67rem;
+
+.react-swipe-container {
+	overflow: hidden;
+	visibility: hidden;
+	position: relative;
+	height: @height;
+
+	.wrapper {
+		overflow: hidden;
+		position: relative;
+		height: @height;
+	}
+
+	.carousel-item {
+		float: left;
+		height: 100%;
+		position: relative;
+
+		.link, .img {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+		}
+	}
+
+	ul {
+		position: absolute;
+		bottom: 20px;
+		display: flex;
+		width: 100%;
+		justify-content: center;
+		li.dot {
+			width: 10px;
+			height: 10px;
+			margin-right: 10px;
+			border-radius: 50%;
+			background: #fff;
+			&.active {
+				background: #ff8533;
+			}
+		}
+	}
+}
