@@ -8,6 +8,7 @@ const Swipe = (container, options) => {
 
 	options = options || {};
 
+  // 默认配置的提取
 	let {
 		startSlide = 0,
 		autoPlay = true,

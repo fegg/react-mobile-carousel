@@ -18,6 +18,18 @@ const style = {
     }
 };
 
+function Items (props) {
+  return props.items.map(item => {
+    return (
+      <div className="carousel-item" key={item.link}>
+        <a className="link" href={item.link || ''}>
+          <img className="img" src={item.img || ''} />
+        </a>
+      </div>
+    );
+  });
+}
+
 class Carousel extends Component {
     static propTypes = {
         swipeOptions: PropTypes.shape({
@@ -74,25 +86,13 @@ class Carousel extends Component {
         return this.swipe.getNumSlides();
     }
 
-    renderItems() {
-        const items = this.props.items;
-        return items.map(item => {
-            return (
-                <div className="carousel-item" key={item.link}>
-                    <a className="link" href={item.link || ''}>
-                        <img className="img" src={item.img || ''} />
-                    </a>
-                </div>
-            );
-        })
-    }
-
     render() {
         const { className, children } = this.props;
+        const items = Items(this.props);
         return (
             <div ref="container" className={`react-swipe-container ${className}`}>
                 <div className="wrapper">
-                    {this.renderItems()}
+                    {items}
                 </div>
             </div>
         );
